@@ -2,6 +2,7 @@
 
 int main(void) {
     int temp,humidity,status;
+    // in if else ladder ,if higher(upper) if is true it rejects other even if other are true
     printf("Smart Server-Room Climate Controller!\n");
     printf("Temperature (integer in Celsius):\t");
     scanf("%d", &temp);
@@ -14,12 +15,13 @@ int main(void) {
         printf("[ERROR] Invalid Humidity Sensor Reading!\n");
         return 1; // Exit program immediately because input is garbage
     }
-    if(status!=(0 || 1)){
+    if (status != 0 && status != 1){
         printf("[ERROR] Incalid Server Staus");
         return 1;
     }
-    if(temp>45 || humidity>90){
-        printf("[CRITICAL ALERT] Emergency ShutDown triggered! AC set to MAX Power!");
+    if(temp>=45 || humidity>90){
+        printf("[CRITICAL ALERT] Emergency ShutDown triggered! AC set to MAX Power!\n");
+    }
     if(status==1){
         printf("Active Server Optimization!!\n");
     if(temp<25 && humidity>60){
